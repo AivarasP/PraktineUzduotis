@@ -1,0 +1,28 @@
+.inputs{
+    background-color: transparent;
+
+    padding: 8px 32px;
+    border:rgb(255, 255, 255) 2px solid;
+    width:60%;
+    margin: 4px 2px;
+    border-radius:6px;
+    color:white;
+}
+::-ms-reveal {
+    filter: invert(100%);
+}
+#log_btn {
+    background-color: transparent;
+    border: 1px solid rgb(164, 159, 159);
+    font-size: 14px;
+    color: #ffffff;
+    padding: 14px 32px;
+    margin-top:18px;
+    width:50%;
+    cursor: pointer;
+    border-radius:20px;
+  }
+#log_btn:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    transition-duration: 0.5s;
+}

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Anton&family=Coming+Soon&family=Montserrat:wght@200&family=Proza+Libre&display=swap');
+.layout{
+    text-align:center;
+    background-color:rgba(255, 255, 255, 0.026);
+    width:auto;
+    padding:40px;
+    border: 2px solid rgb(255, 255, 255);
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border-radius:15px;
+}
+
+#buttons {
+    background-color: transparent;
+    border: 1px solid rgb(164, 159, 159);
+    font-size: 15px;
+    color: #ffffff;
+    padding: 14px 32px;
+    margin: 4px 2px;
+    width:100%;
+    cursor: pointer;
+    border-radius:10px;
+  }
+#buttons:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    transition-duration: 0.5s;
+}
+h1{
+    margin-top: 0;
+    padding-top: 50px;
+    text-align:center;
+    color:rgba(255, 255, 255, 0.628);
+    font-family: 'Anton';
+    font-size:40px;
+}
+h2{ 
+    color:rgb(240, 231, 231);
+    text-shadow: 1px 2px #000000;
+}
+.cssanimation, .cssanimation span {
+    animation-duration: 1.7s;
+    animation-fill-mode: both;
+  }
+  .fadeInBottom { animation-name: fadeInBottom }
+  @keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    to { opacity: 1 }
+  }
