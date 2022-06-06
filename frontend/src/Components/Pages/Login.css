@@ -1,9 +1,9 @@
 .inputs{
     background-color: transparent;
-
+    display:inline-block;
     padding: 8px 32px;
     border:rgb(255, 255, 255) 2px solid;
-    width:60%;
+    width:65%;
     margin: 4px 2px;
     border-radius:6px;
     color:white;

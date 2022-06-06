@@ -5,6 +5,15 @@ import Form from "react-validation/build/form";
 import CheckButton from "react-validation/build/button";
 import AuthService from '../../services/auth.service';
 import './Login.css'
+const required = (value) => {
+  if (!value) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        This field is required!
+      </div>
+    );
+  }
+};
 const Login = () => {
     let navigate = useNavigate();
 
@@ -86,17 +95,24 @@ const Login = () => {
                validations={[required]}
                className="inputs">
         </input>
-        </div>
-        
         <div style={{color:'white'}}>Dar neturite vartojo? <Link to="/signup" style={{color:'rgb(69, 220, 180)',textDecoration:'none'}}> Prisiregistruoti.</Link></div>
-        <Link to="/home">
+        {message && (
+            <div className="form-group">
+              <div className="alert" role="alert" style={{color:'white'}}>
+                {message}
+              </div>
+            </div>
+          )}
+        </div>
+        <div>
         <button id="log_btn" disabled={loading}>
               {loading && (
                 <span className="spinner-border spinner-border-sm" ></span>
               )}
               Prisijungti
             </button>
-                </Link>
+            </div>
+               
                 <CheckButton style={{ display: "none" }} ref={checkBtn} />
         </div>
         </Form>
@@ -111,13 +127,5 @@ const HeaderStyle = {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover"
 }
-const required = (value) => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This field is required!
-      </div>
-    );
-  }
-};
+
 export default Login;

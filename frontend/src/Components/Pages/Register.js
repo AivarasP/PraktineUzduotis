@@ -1,41 +1,176 @@
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import BackgroundImage from '../../images/bg.jpg'
-import React from 'react';
+import CheckButton from "react-validation/build/button";
+import Form from "react-validation/build/form";
+import React, {useState,useRef} from 'react';
+import {isEmail} from "validator";
+import Swal from 'sweetalert2';
+import AuthService from '../../services/auth.service';
 import './Register.css'
+const required = (value) => {
+       if (!value) {
+         return (
+           <div className="alert alert-danger" role="alert">
+             This field is required!
+           </div>
+         );
+       }
+     };
+     
+     const validEmail = (value) => {
+       if (!isEmail(value)) {
+         return (
+           <div className="alert alert-danger" role="alert">
+             This is not a valid email.
+           </div>
+         );
+       }
+     };
+     
+     const vusername = (value) => {
+       if (value.length < 3 || value.length > 20) {
+         return (
+           <div className="alert alert-danger" role="alert">
+             The username must be between 3 and 20 characters.
+           </div>
+         );
+       }
+     };
+     
+     const vpassword = (value) => {
+       if (value.length < 6 || value.length > 40) {
+         return (
+           <div className="alert alert-danger" role="alert">
+             The password must be between 6 and 40 characters.
+           </div>
+         );
+       }
+     };
 const Register = () => {
+       const navigate = useNavigate();
+  const form = useRef();
+  const checkBtn = useRef();
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [successful, setSuccessful] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const onChangeUsername = (e) => {
+    const username = e.target.value;
+    setUsername(username);
+  };
+
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    setMessage("");
+    setSuccessful(false);
+
+    form.current.validateAll();
+
+    if (checkBtn.current.context._errors.length === 0) {
+      AuthService.register(username, email, password).then(
+        (response) => {
+            Swal.fire({
+                position: 'top',
+                icon: 'success',
+                color: 'white',
+                background:'transparent',
+                title: 'Prisiregistravote!',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        navigate("/signin");
+          setMessage(response.data.message);
+          setSuccessful(true); 
+          
+        },
+        (error) => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+          setMessage(resMessage);
+          setSuccessful(false);
+        }
+      );
+    }
+  };
+
     return ( 
         <header style={HeaderStyle}>
         <h1>Registracija</h1>
+        <Form onSubmit={handleRegister} ref={form}>
+              {!successful && (
+
+              
         <div className='layout'>
         <div>
         <label htmlFor="username" style={{color:'white',}}>Vartotojo Vardas</label>
         <input type="text"
                placeholder='Vardas'
                name="username"
-               className="inputs">
+               className="inputs"
+               value={username}
+               onChange={onChangeUsername}
+               validations={[required,vusername]}>
         </input>
         </div>
         <div>
         <label htmlFor="username" style={{color:'white',}}>Elektroninis paštas</label>
-        <input type="text"
+        <input type="email"
                placeholder='VardenisPavardenis@gmail.com'
-               name="username"
-               className="inputs">
+               name="email"
+               className="inputs"
+               value={email}
+               onChange={onChangeEmail}
+               validations={[required,validEmail]}>
         </input>
         </div>
         <div>
         <label htmlFor="username" style={{color:'white',}}>Slaptažodis</label>
         <input type="password"
                placeholder='***********'
-               name="username"
+               name="password"
+               value={password}
+               onChange={onChangePassword}
+               validations={[required,vpassword]}
                className="inputs">
         </input>
-        </div>
         <div style={{color:'white'}}>Jau turite vartotoja? <Link to="/signin" style={{color:'rgb(69, 220, 180)',textDecoration:'none'}}> Prisijungti.</Link></div>
-        <Link to="/signin">
-                <button id="log_btn">Registruotis</button>
-                </Link>
+        {message && (
+            <div>
+              <div
+                className={
+                  successful ? "alert alert-success" : "alert alert-danger"
+                }
+                role="alert"
+              >
+                {message}
+              </div>
+            </div>
+          )}
         </div>
+                <button id="log_btn">Registruotis</button>
+        </div>
+        )}
+        <CheckButton style={{display:"none"}} ref={checkBtn}/>
+        </Form>
         </header>
      );
 }
