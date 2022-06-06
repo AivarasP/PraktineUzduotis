@@ -132,7 +132,7 @@ const Register = () => {
         </input>
         </div>
         <div>
-        <label htmlFor="username" style={{color:'white',}}>Elektroninis paštas</label>
+        <label htmlFor="email" style={{color:'white',}}>Elektroninis paštas</label>
         <input type="email"
                placeholder='VardenisPavardenis@gmail.com'
                name="email"
@@ -143,7 +143,7 @@ const Register = () => {
         </input>
         </div>
         <div>
-        <label htmlFor="username" style={{color:'white',}}>Slaptažodis</label>
+        <label htmlFor="password" style={{color:'white',}}>Slaptažodis</label>
         <input type="password"
                placeholder='***********'
                name="password"
@@ -155,7 +155,7 @@ const Register = () => {
         <div style={{color:'white'}}>Jau turite vartotoja? <Link to="/signin" style={{color:'rgb(69, 220, 180)',textDecoration:'none'}}> Prisijungti.</Link></div>
         {message && (
             <div>
-              <div
+              <div style={{color:'white'}}
                 className={
                   successful ? "alert alert-success" : "alert alert-danger"
                 }

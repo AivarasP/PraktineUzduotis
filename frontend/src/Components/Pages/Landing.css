@@ -31,6 +31,7 @@
 h1{
     margin-top: 0;
     padding-top: 50px;
+    user-select: none;
     text-align:center;
     color:rgba(255, 255, 255, 0.628);
     font-family: 'Anton';
