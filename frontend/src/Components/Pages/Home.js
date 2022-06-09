@@ -36,7 +36,7 @@ const Home = () => {
           <div className="navbar-nav ml-auto">
             
             <Link to="/">
-            <button id="log_btn"onClick={logOut}>
+            <button id="log_btns"onClick={logOut}>
               ATSIJUNGTI
             </button>
             </Link>  
