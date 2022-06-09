@@ -114,7 +114,7 @@ const Register = () => {
 
     return ( 
         <header style={HeaderStyle}>
-        <h1>Registracija</h1>
+        <h1 className="title" >Registracija</h1>
         <Form onSubmit={handleRegister} ref={form}>
               {!successful && (
 

@@ -28,7 +28,7 @@
     background-color: rgba(255, 255, 255, 0.1);
     transition-duration: 0.5s;
 }
-h1{
+.title{
     margin-top: 0;
     padding-top: 50px;
     user-select: none;

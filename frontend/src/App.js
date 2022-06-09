@@ -3,8 +3,10 @@ import Login from './Components/Pages/Login'
 import Register from './Components/Pages/Register'
 import Landing from './Components/Pages/Landing'
 import Home from './Components/Pages/Home';
+import { Fragment } from 'react';
 import AddRestaurant from './Components/AddRestaurant';
 import EditRestaurant from './Components/EditRestaurant';
+import Navbar from './Components/Pages/Navbar';
 import './App.css';
 
 function App() {
@@ -28,7 +30,7 @@ function App() {
         <Route path="/" element={<Landing/>}/>
         <Route path="/signin" element={<Login/>}/>
         <Route path="/signup" element={<Register/>}/>
-        <Route path="/home" element={<AuthRoute><Home/></AuthRoute>}/>
+        <Route path="/home" element={<AuthRoute><Fragment><Navbar/><Home/></Fragment></AuthRoute>}/>
         <Route path="/add-restaurant" element={<AuthRoute><AddRestaurant/></AuthRoute>}/>
         <Route path="edit-restaurant/:id" element={<AuthRoute><EditRestaurant/></AuthRoute>} />
       </Routes>

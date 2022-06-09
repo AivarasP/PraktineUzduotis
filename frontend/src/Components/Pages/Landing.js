@@ -6,7 +6,7 @@ const Landing = () => {
 
     return (  
         <header style={HeaderStyle}>
-            <h1>Valgykla</h1>
+            <h1 className="title">Valgykla</h1>
         <div className="layout cssanimation sequence fadeInBottom">
             <h2>Prisijunkite ir Skanaus!</h2>
             <div className="buttons">

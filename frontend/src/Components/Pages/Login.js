@@ -70,7 +70,7 @@ const Login = () => {
 
     return ( 
         <header style={HeaderStyle}>
-        <h1>Prisijungti</h1>
+        <h1 className="title">Prisijungti</h1>
         <Form onSubmit={handleLogin} ref={form}>
         <div className='layout'> 
         <div>

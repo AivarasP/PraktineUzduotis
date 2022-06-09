@@ -1,10 +1,9 @@
-import BackgroundImage from '../../images/bg.jpg'
+
 import React, { useState, useEffect } from "react";
 import AuthService from '../../services/auth.service';
 import EventBus from '../../common/EventBus';
 import { Link } from 'react-router-dom';
-import "./Home.css"
-const Home = () => {
+const Navbar = () => {
     const [showAdminBoard, setShowAdminBoard] = useState(false);
     const [currentUser, setCurrentUser] = useState(undefined);
     useEffect(() => {
@@ -31,16 +30,26 @@ const Home = () => {
         
       };
     return (
-        <header style={HeaderStyle}>
+        <header>
+        {currentUser ? (
+          <div className="navbar-nav ml-auto">
+            
+            <Link to="/">
+            <button id="log_btns"onClick={logOut}>
+              ATSIJUNGTI
+            </button>
+            </Link>
+            <Link to="/add-restaurant/">
+              <button id="log_btns">
+                PRIDĖTI RESTORANĄ
+              </button>
+            </Link>  
+          </div>
+        ) : (
+            <p>Neprisijunges Vartotojas</p>
+        )}
         </header>
       );
 }
-const HeaderStyle = {
-    width: "100%",
-    height: "100vh",
-    background: `url(${BackgroundImage})`,
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover"
-}
-export default Home;
+ 
+export default Navbar;
