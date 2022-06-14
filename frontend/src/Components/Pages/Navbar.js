@@ -30,7 +30,7 @@ const Navbar = () => {
         
       };
     return (
-        <header>
+        <header className="navbar">
         {currentUser ? (
           <div className="navbar-nav ml-auto">
             
@@ -41,9 +41,14 @@ const Navbar = () => {
             </Link>
             <Link to="/add-restaurant/">
               <button id="log_btns">
-                PRIDĖTI RESTORANĄ
+                PRIDĖTI MENU RESTORANUI
               </button>
             </Link>  
+            <Link to="/add-restaurant/">
+              <button id="log_btns">
+                PRIDĖTI RESTORANĄ
+              </button>
+            </Link> 
           </div>
         ) : (
             <p>Neprisijunges Vartotojas</p>

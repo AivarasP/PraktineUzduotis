@@ -7,6 +7,7 @@ import { Fragment } from 'react';
 import AddRestaurant from './Components/AddRestaurant';
 import EditRestaurant from './Components/EditRestaurant';
 import Navbar from './Components/Pages/Navbar';
+import Restaurant from './Components/Restaurant';
 import './App.css';
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
         <Route path="/" element={<Landing/>}/>
         <Route path="/signin" element={<Login/>}/>
         <Route path="/signup" element={<Register/>}/>
-        <Route path="/home" element={<AuthRoute><Fragment><Navbar/><Home/></Fragment></AuthRoute>}/>
+        <Route path="/home" element={<AuthRoute><Fragment><Navbar/><Restaurant/><Home/></Fragment></AuthRoute>}/>
         <Route path="/add-restaurant" element={<AuthRoute><AddRestaurant/></AuthRoute>}/>
         <Route path="edit-restaurant/:id" element={<AuthRoute><EditRestaurant/></AuthRoute>} />
       </Routes>
