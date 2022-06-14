@@ -16,11 +16,17 @@ useEffect(() => {
 }, [restaurant]);
     return (  
         <div>
-            <div className='ss'>
-            {restaurant.map((restaurants, index) => (
+        <div className='title2'>
+<h1 className='title'>Maitinimo Įstaigos</h1>
+</div>
+            <div className='content'>
+                
+            {restaurant.map((restaurants) => (
+            
                 <div className="restaurantpage">
-                    <h2>Restoranas : {restaurants.name}</h2>
-              <ul key={index}>
+
+              <ul>
+                  <h2 style={{fontSize:20}}>Restoranas : {restaurants.name}</h2>
                 <li>
                  Įmonės Kodas : {restaurants.code}
                 </li>
@@ -39,7 +45,7 @@ useEffect(() => {
               </div>
               </div>
             ))}
-            </div>
+            </div>  
         </div>
     );
 }

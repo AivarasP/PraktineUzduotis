@@ -1,21 +1,28 @@
+.content{
+position:absolute;
+display:grid;
+height:58%;
+left:0;
+padding:20px;
+right:0;
+grid-template-columns: repeat(4, 25%);
+grid-template-rows: repeat(4, 70%);
 
+}
 .restaurantpage{
-    background-color:rgba(255, 255, 255, 0.028);
-    position:absolute;
+    background-color:rgba(255, 255, 255, 0.057);
     padding:15px;
+    position:relative;
     top:8vw;
-    left:4vw;
-    border:5px solid rgb(186, 184, 184);
+    margin: 10px;
+    border:5px solid rgb(255, 255, 255);
     border-radius:20px;
-    width:28%;
-    height:60%;
+
 }
 li{
     list-style: none;
     position: relative;
-    top:30px;
-    font-size:21px;
-    bottom: 10px;
+    font-size:18px;
     color:white;
 }
 .buttons{
@@ -29,10 +36,10 @@ li{
 #btns {
     background-color: transparent;
     border: 1px solid rgb(164, 159, 159);
-    font-size: 14px;
+    font-size: 13px;
     color: #ffffff;
-    padding: 8px 8px;
-    margin: 4px 2px;
+    padding: 10px 4px;
+    margin: 2px 2px;
     width:48%;
     cursor: pointer;
     border-radius:10px;
@@ -40,4 +47,10 @@ li{
 #btns:hover{
     background-color: rgba(255, 255, 255, 0.1);
     transition-duration: 0.5s;
+}
+.title2{
+    position:absolute;
+    left:0;
+    padding:10px;
+    right:0;  
 }

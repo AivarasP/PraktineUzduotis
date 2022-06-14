@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import AuthService from '../../services/auth.service';
 import EventBus from '../../common/EventBus';
 import { Link } from 'react-router-dom';
+import "./Navbar.css";
 const Navbar = () => {
     const [showAdminBoard, setShowAdminBoard] = useState(false);
     const [currentUser, setCurrentUser] = useState(undefined);
